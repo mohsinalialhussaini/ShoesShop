@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jootaShopDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="loginTable" Relationship="Self.FK_AdminData_loginTable" FromRole="AdminData" ToRole="loginTable" />
+    <NavigationProperty Name="productAddedBies" Relationship="Self.FK_productAddedBy_AdminData" FromRole="AdminData" ToRole="productAddedBy" />
+  </EntityType>
+  <EntityType Name="catagoryTable">
+    <Key>
+      <PropertyRef Name="catagoryID" />
+    </Key>
+    <Property Name="catagoryID" Type="Int32" Nullable="false" />
+    <Property Name="catagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="productAddedBies" Relationship="Self.FK_productAddedBy_catagoryTable" FromRole="catagoryTable" ToRole="productAddedBy" />
+    <NavigationProperty Name="productTables" Relationship="Self.FK_productTable_catagoryTable" FromRole="catagoryTable" ToRole="productTable" />
+  </EntityType>
+  <EntityType Name="loginTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AdminData" Relationship="Self.FK_AdminData_loginTable" FromRole="loginTable" ToRole="AdminData" />
+  </EntityType>
+  <EntityType Name="OrderProduct">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" />
+    <NavigationProperty Name="orderTable" Relationship="Self.FK_OrderProduct_orderTable" FromRole="OrderProduct" ToRole="orderTable" />
+    <NavigationProperty Name="productTable" Relationship="Self.FK_OrderProduct_productTable" FromRole="OrderProduct" ToRole="productTable" />
+  </EntityType>
+  <EntityType Name="orderTable">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_orderTable" FromRole="orderTable" ToRole="OrderProduct" />
+  </EntityType>
+  <EntityType Name="productAddedBy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="productID" Type="Int32" />
+    <Property Name="catagoryID" Type="Int32" />
+    <Property Name="AdminID" Type="Int32" />
+    <Property Name="AdditionDate" Type="DateTime" Precision="0" />
+    <Property Name="AdditionTime" Type="Time" Precision="7" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="AdminData" Relationship="Self.FK_productAddedBy_AdminData" FromRole="productAddedBy" ToRole="AdminData" />
+    <NavigationProperty Name="catagoryTable" Relationship="Self.FK_productAddedBy_catagoryTable" FromRole="productAddedBy" ToRole="catagoryTable" />
+    <NavigationProperty Name="productTable" Relationship="Self.FK_productAddedBy_productTable" FromRole="productAddedBy" ToRole="productTable" />
+    <NavigationProperty Name="productTable1" Relationship="Self.FK_productAddedBy_productTable1" FromRole="productAddedBy" ToRole="productTable" />
+  </EntityType>
+  <EntityType Name="productTable">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="catagoryID" Type="Int32" />
+    <Property Name="imagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="catagoryTable" Relationship="Self.FK_productTable_catagoryTable" FromRole="productTable" ToRole="catagoryTable" />
+    <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_productTable" FromRole="productTable" ToRole="OrderProduct" />
+    <NavigationProperty Name="productAddedBies" Relationship="Self.FK_productAddedBy_productTable" FromRole="productTable" ToRole="productAddedBy" />
+    <NavigationProperty Name="productAddedBies1" Relationship="Self.FK_productAddedBy_productTable1" FromRole="productTable" ToRole="productAddedBy" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_AdminData_loginTable">
+    <End Role="loginTable" Type="Self.loginTable" Multiplicity="1" />
+    <End Role="AdminData" Type="Self.AdminData" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="loginTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AdminData">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productAddedBy_AdminData">
+    <End Role="AdminData" Type="Self.AdminData" Multiplicity="0..1" />
+    <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminData">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="productAddedBy">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productAddedBy_catagoryTable">
+    <End Role="catagoryTable" Type="Self.catagoryTable" Multiplicity="0..1" />
+    <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catagoryTable">
+        <PropertyRef Name="catagoryID" />
+      </Principal>
+      <Dependent Role="productAddedBy">
+        <PropertyRef Name="catagoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productTable_catagoryTable">
+    <End Role="catagoryTable" Type="Self.catagoryTable" Multiplicity="0..1" />
+    <End Role="productTable" Type="Self.productTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catagoryTable">
+        <PropertyRef Name="catagoryID" />
+      </Principal>
+      <Dependent Role="productTable">
+        <PropertyRef Name="catagoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderProduct_orderTable">
+    <End Role="orderTable" Type="Self.orderTable" Multiplicity="1" />
+    <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orderTable">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderProduct">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderProduct_productTable">
+    <End Role="productTable" Type="Self.productTable" Multiplicity="1" />
+    <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productTable">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productAddedBy_productTable">
+    <End Role="productTable" Type="Self.productTable" Multiplicity="0..1" />
+    <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productTable">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="productAddedBy">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productAddedBy_productTable1">
+    <End Role="productTable" Type="Self.productTable" Multiplicity="0..1" />
+    <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productTable">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="productAddedBy">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="jootaShopDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminDatas" EntityType="Self.AdminData" />
+    <EntitySet Name="catagoryTables" EntityType="Self.catagoryTable" />
+    <EntitySet Name="loginTables" EntityType="Self.loginTable" />
+    <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
+    <EntitySet Name="orderTables" EntityType="Self.orderTable" />
+    <EntitySet Name="productAddedBies" EntityType="Self.productAddedBy" />
+    <EntitySet Name="productTables" EntityType="Self.productTable" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_AdminData_loginTable" Association="Self.FK_AdminData_loginTable">
+      <End Role="loginTable" EntitySet="loginTables" />
+      <End Role="AdminData" EntitySet="AdminDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productAddedBy_AdminData" Association="Self.FK_productAddedBy_AdminData">
+      <End Role="AdminData" EntitySet="AdminDatas" />
+      <End Role="productAddedBy" EntitySet="productAddedBies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productAddedBy_catagoryTable" Association="Self.FK_productAddedBy_catagoryTable">
+      <End Role="catagoryTable" EntitySet="catagoryTables" />
+      <End Role="productAddedBy" EntitySet="productAddedBies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productTable_catagoryTable" Association="Self.FK_productTable_catagoryTable">
+      <End Role="catagoryTable" EntitySet="catagoryTables" />
+      <End Role="productTable" EntitySet="productTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderProduct_orderTable" Association="Self.FK_OrderProduct_orderTable">
+      <End Role="orderTable" EntitySet="orderTables" />
+      <End Role="OrderProduct" EntitySet="OrderProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderProduct_productTable" Association="Self.FK_OrderProduct_productTable">
+      <End Role="productTable" EntitySet="productTables" />
+      <End Role="OrderProduct" EntitySet="OrderProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productAddedBy_productTable" Association="Self.FK_productAddedBy_productTable">
+      <End Role="productTable" EntitySet="productTables" />
+      <End Role="productAddedBy" EntitySet="productAddedBies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productAddedBy_productTable1" Association="Self.FK_productAddedBy_productTable1">
+      <End Role="productTable" EntitySet="productTables" />
+      <End Role="productAddedBy" EntitySet="productAddedBies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

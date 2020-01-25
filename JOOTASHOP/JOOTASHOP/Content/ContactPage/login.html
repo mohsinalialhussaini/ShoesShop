@@ -1,0 +1,607 @@
+<html>
+<head>
+	<style type="text/css">
+
+	*{
+		margin: 0px;
+	}
+
+
+	/*********************************
+	******Head & Nevigation Bar******
+	*********************************/
+
+
+	.head{
+		width: 100%;
+		height: 100px;
+		background-color: #0BA9F9;
+		position: fixed;
+		z-index: 2;
+	}
+
+	
+
+	.title{
+		
+		float: left;
+		width: 30%;
+		margin-top: 2.45%;
+		margin-left: 3.3%;
+
+	}
+
+	.title h1{
+		font-size: 200%;
+	}
+
+	.list{
+		float: right;
+		width: 670px;
+		margin-top: 3.2%;
+		margin-right: 4.4%;
+	}
+
+	
+	.nave ul{
+		list-style-type: none;
+		margin-right:20px; 
+		
+	}
+	.nave ul li{
+		float: left;
+		width: 80px;
+		height: 25px;
+		text-align: center;
+		margin-left: 40px;
+		padding-top: 6px;
+		border-radius: 5px;
+		font-family: Agency FB;
+
+	}
+	.nave ul li a{
+		text-decoration: none;
+		color: black;
+		letter-spacing: 3px;
+		font-size: 20px;
+
+	}
+
+	.nave ul li a:hover{
+		color: white;
+	}
+
+	#nave_li_background{
+		background-color: black;
+	}
+
+	#nave_li_background a{
+		color: white;
+	}
+
+	
+
+	/*head Closed*/
+
+
+
+
+	/*********************************
+	******--------Extra--------******
+	*********************************/
+
+	.extra{
+		height: 100px;
+		width: 100%;
+	}
+
+	/*********************************
+	******-------Login Form-----******
+	*********************************/
+	
+	.login_form{
+	
+		
+		background-color: rgba(18,52,86,0.8);
+		margin: auto;
+		width: 50%;
+		height:750px;
+		border-radius: 10px;
+		color: white;
+		padding: 5px;
+		font-family: Agency FB;
+		font-size: 20px;
+		padding-left: 15px;
+		margin-top: 10px;
+		
+	
+	}
+
+	.login_form p{
+		text-align: right;
+		margin-left: 360px;
+		margin-top: 20px;
+		color: red;
+		font-family: Agency FB;
+		font-size: 25px;
+		position: absolute;
+		z-index: 1;
+	}
+	
+	.login_form a{
+		text-decoration: none;
+		color: red;
+	}
+	
+	.login_form input{
+		border: 3px solid black;
+		border-radius: 5px;
+			margin-top: 10px;
+			text-align: center;
+	
+	}
+	
+	#dob{
+		width: 180px;
+	}
+	
+	
+	
+	
+	
+	
+	#signup{
+	
+		border: 3px solid White;
+		height: 40px;
+		width: 120px;
+		color: White;
+		background-color: transparent;
+		border-radius: 10px;
+		text-align: center;
+		margin-left: 40%;
+		font-size: 25px;
+		font-family: Agency FB;
+	
+	}
+	
+	#signup:hover{
+		background-color: White;
+		color: black;
+		
+	}
+	
+	#login_heading{
+		text-align: center;
+		font-family: Agency FB;
+		font-size: 50px;
+		margin-top: 5px;
+	}
+	
+	#fname{
+	
+		margin: 10px 10px 10px 40px;
+	}
+	
+	#lname{
+		margin: 5px 10px 10px 43px;
+	}
+	
+	#male
+	{
+		margin: 0px 10px 10px 60px;
+	}
+	
+	#dob{
+		margin: 0px 10px 10px 28px;
+	
+	}
+	
+	
+	
+	#Email{
+		margin: 0px 10px 10px 78px;
+	}
+	
+	#pass{
+		margin: 0px 10px 10px 49px;
+	}
+	
+	#repass{
+		margin: 0px 10px 10px 33px;
+	}
+	
+	#bgcolor{
+		width: 60px;
+		margin-top: 0px;
+		height: 30px;
+	}
+	
+	#country{
+		margin: 0px 10px 10px 63px;
+	}
+	
+	
+	
+	
+	#submit:hover {
+		background-color: pink;
+	}
+
+
+
+	
+	
+
+	/*********************************
+	******--------Footer--------******
+	*********************************/
+	.footer{
+		
+		width: 100%;
+		height:250px;
+		background-color: rgba(0,0,0,0.8);
+		color: White;
+		clear: both;
+		margin-top: 20px;
+
+		
+	}
+	.a{
+		height: 150px;
+		width: 22%;
+		float: left;
+		margin-right: 0px;
+		margin-left:130px;
+		margin-bottom: 10px; 
+		margin-top: 20px;
+		font-family: Arial;
+		line-height: 22px;
+		font-size: 15px;
+		letter-spacing: 1px;
+	}
+
+
+	.copyright{
+
+		width: 100%;
+		clear: both;
+	}
+
+	
+	.social_links img
+	{
+		height: 40px;
+		width: auto;
+		margin-right: 0px;
+	}
+
+
+
+
+
+
+	</style>
+
+
+
+</head>
+	<body background="login.jpg">
+	
+<div class="head">
+
+
+
+<div class="nave">
+<div class="title">
+<h1 > Wonders Of The World</h1>
+</div>
+
+<div class="list">
+<ul>
+	<li id="nave_li_background"> <a href="home.html">  HOME </a></li>
+		<li> <a href="#gallery"> Gallery  </a></li>
+			<li> <a href="login.html">  SIGN-UP </a></li>
+				<li> <a href="#team"> TEAM  </a></li>
+					<li> <a href="#contact"> CONTACT  </a></li>
+</ul>
+
+
+</div>
+	
+
+</div>																		<!--nave-->
+</div>																		<!--head-->
+
+<div class="extra">									<!--extra Div, below nave-->
+</div>
+
+<div class="login_form">										<!--Login_Form start-->
+	
+	<h1 id="login_heading">Creat New Account</h1>
+
+	
+	<p> <a href="login2.html"> Already Have An Account ? ? ? </a> </p>
+	
+
+
+Enter First Name:
+<input type="text" id="fname" placeholder="First Name" >
+
+<br />
+
+Enter Last Name:
+<input type="text" id="lname" placeholder="Last Name">
+
+
+</br>
+
+
+
+Select Gander:
+<input type="radio" name="Gender" value="male" checked id="male">
+Male 
+<input type="radio" name="Gender" value="female" >
+Female <br>
+
+
+
+
+
+
+	
+
+Enter Date Of Birth:
+<input type="date" id="dob">
+	
+		
+<br />
+		
+Enter Email:
+<input type="emali" id="Email" placeholder="Something@LikeThis.com">
+
+<br />
+
+
+Enter Password:
+<input type="password" id="pass" placeholder="Password">
+
+<br />
+
+
+ReEnter Password:
+<input type="password" id="repass"  placeholder="ReType Password">
+
+
+<br />
+<br />
+
+
+Account Will be Use for:
+<input type="radio" name="usage" checked>
+Education
+
+<input type="radio" name="usage">
+Buisness
+
+<input type="radio" name="usage">
+Politics
+
+<input type="radio" name="usage">
+Offical
+
+ <input type="radio" name="usage">
+ Others
+
+ <br/>
+ <br />
+
+ Select Country:  
+
+ 	<select id="country">
+	
+				<option>Pakistan  </option>
+				<option> USA </option>
+				<option> UK </option>
+				<option> Afghanistan </option>
+				<option> Iraq </option>
+				<option> London </option>
+	</select>
+
+
+
+<br />
+<br />
+
+
+
+Choose A background Color for Your ID#
+<input type="color" value="#0BA9F9" id="bgcolor">
+
+
+
+<br>
+<br>
+<br>
+
+<hr size="3px" color="White">
+
+
+<input type="radio" name="terms" id="terms">
+Are You Agree With Our <a href="#" > Terms & Conditions </a>
+
+
+<hr size="3px" color="White">
+	
+
+<br>
+
+
+
+<button onclick="login()" id="signup"> SignUp </button>
+
+
+
+</div>															<!--Login Form End-->
+
+
+
+
+
+
+
+
+<div class="footer">														<!--Footer-->
+
+
+
+
+	<div class="a">
+	<h3> The Company </h3>
+<br>
+	About US<br>The Team<br>In The News<br>Our App<br>Newsletter
+		
+	</div>
+
+	<div class="a">
+
+	<h3> Contact US </h3>
+
+	<br>
+
+	Get In Touch <br> Adviser <br> Careers <br> Become a contributor 
+		
+	</div>
+
+	<div class="a">
+		<h3>Legal</h3>
+<br>
+		Privacy Policy <br> Terms Of Use 
+	</div>
+
+
+	<div class="copyright">
+	<div class="social_links">
+<center>
+<img src="~/Content/ContactPage/fb.jpg" >
+<img src="~/Content/ContactPage/twtr.jpg" >
+<img src="~/Content/ContactPage/s.jpg" >
+<img src="~/Content/ContactPage/yt.jpg" >
+<img src="~/Content/ContactPage/snap.jpg" >
+<img src="~/Content/ContactPage/inst.jpg" >
+<img src="~/Content/ContactPage/v.jpg" >
+	</center>
+
+</div>
+
+	<center>&copy; 2018, CopyRight Reserved.</center>
+		
+	</div>
+
+	
+</div>
+
+	
+
+</div>
+
+	
+
+</div>
+
+
+	</body>
+
+
+
+<script>
+
+function login() {
+		// body...
+	
+
+var fname=document.getElementById('fname').value;
+var lname=document.getElementById('lname').value;
+var pass=document.getElementById('pass').value;
+var repass=document.getElementById('repass').value;
+var Email=document.getElementById('Email').value;
+var terms=document.getElementById('terms').checked;
+var dob=document.getElementById('dob').value;
+
+
+
+
+if (fname=="") 
+
+{
+
+	alert("Enter First Name");
+}
+
+
+else if (lname=="") 
+
+{
+
+	alert("Enter Last Name");
+}
+
+else if (dob=="") 
+
+{
+
+	alert("Enter Date Of Birth ");
+}
+
+else if (Email=="") 
+
+{
+
+	alert("Enter Email");
+}
+
+
+else if (pass=="") 
+
+{
+
+	alert("Enter Password");
+}
+
+else if (repass=="") 
+
+{
+
+	alert("Re-Type Password");
+}
+
+else if (pass!==repass) 
+
+{
+
+	alert("Password Is Not Metching");
+}
+
+
+
+
+else if (terms=="") 
+
+{
+
+	alert("Follow Our Terms & Conditions");
+}
+
+else{
+	alert("SignUp Successfully");
+
+}
+
+}
+
+
+
+	
+
+</script>
+</html>

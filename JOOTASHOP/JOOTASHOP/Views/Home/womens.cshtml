@@ -1,0 +1,426 @@
+﻿
+@{
+    ViewBag.Title = "wowomen";
+}
+
+<h2>wowomen</h2>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .mySlides {
+            display: none;
+        }
+
+
+
+        img:hover {
+            border: double;
+            border-color: blueviolet;
+        }
+    </style>
+
+
+</head>
+
+<body style="background-color:white;">
+
+    <h2 class="w3-center" style="font-family:'Agency FB'; color:black; font-weight:bold; font-size:50px;">JOOTA SHOP</h2>
+
+    <div style="background-color:white;">
+        <center>
+            <div class="" style="max-width:500px;">
+
+                <img class="mySlides" src="~/Content/Slider/1.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/2.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/3.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/4.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/5.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/6.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/7.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/8.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/9.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/10.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/11.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/12.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/13.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/14.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/15.jpeg" style="width:100%; height:500px;">
+
+
+            </div>
+        </center>
+    </div>
+    <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/themes/assets/css/carousel.css" rel="stylesheet">
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+
+
+
+
+
+
+
+
+
+    <div class="container marketing">
+        <h2 class="itemsTitle">Breakfast</h2>
+        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="~/Content/women/1.jpeg" alt="Generic placeholder image">
+                            <h4>Salates</h4>
+                            <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <img src="~/Content/women/2.jpeg" alt="Generic placeholder image">
+                            <h4>Meal</h4>
+                            <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <img src="~/Content/women/3.jpeg" alt="Generic placeholder image">
+                            <h4>Drink</h4>
+                            <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="~/Content/women/4.jpeg" alt="Generic placeholder image">
+                        <h4>Salates</h4>
+                        <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img src="~/Content/women/5.jpeg" alt="Generic placeholder image">
+                        <h4>Meal</h4>
+                        <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img src="~/Content/women/6.jpeg" alt="Generic placeholder image">
+                        <h4>Drink</h4>
+                        <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="~/Content/women/7.jpeg" alt="Generic placeholder image">
+                    <h4>Salates</h4>
+                    <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/Content/women/8.jpeg" alt="Generic placeholder image">
+                    <h4>Meal</h4>
+                    <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/Content/women/9.jpeg" alt="Generic placeholder image">
+                    <h4>Drink</h4>
+                    <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/10.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/11.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/12.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/13.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/14.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/15.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/16.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/17.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/18.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/19.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/20.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/21.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/22.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/23.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/24.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/25.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/26.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/27.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/Content/women/28.jpeg" alt="Generic placeholder image">
+                <h4>Salates</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/29.jpeg" alt="Generic placeholder image">
+                <h4>Meal</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="~/Content/women/30.jpeg" alt="Generic placeholder image">
+                <h4>Drink</h4>
+                <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+    </div>
+
+
+
+    <div class="introSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h3>Welcome to restaurent</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type speciwomen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br>
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+
+                <div class="col-lg-4">
+                    <h3>Welcome to restaurent</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type speciwomen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br>
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-3">
+                    <h3>Welcome to restaurent</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type speciwomen book.
+
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container marketing">
+        <div id="myCarousel4" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row featurette">
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading">Fish and Chips <span class="text-muted">It's very very testy</span></h2>
+                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="~/Content/themes/assets/images/fish-and-chips.png" alt="Fish and Chips">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="item">
+                    <div class="row featurette">
+                        <div class="col-md-5">
+                            <img src="~/Content/themes/assets/images/burger.png" alt="Generic placeholder image">
+                        </div>
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading">Oh yeah, very nice Burger. <span class="text-muted">Delicious.</span></h2>
+                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="item">
+                    <div class="row featurette">
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading">Try yourself <span class="text-muted">Testy</span></h2>
+                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img class="img-circle" src="~/Content/themes/assets/images/drinks.png" alt="Generic placeholder image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.carousel -->
+    </div><!-- /.container -->
+    <!-- /END THE FEATURETTES -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the docuwoment so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/themes/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/themes/assets/js/holder.js"></script>
+</body>
+</html>
+

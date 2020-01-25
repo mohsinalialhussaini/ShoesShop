@@ -1,0 +1,183 @@
+﻿@model List<JOOTASHOP.Models.productTable>
+@{
+    ViewBag.Title = "mens";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
+</head>
+
+<body style="background-color:white;">
+
+    <center> <h2 class="w3-center" style="font-family:'Agency FB'; color:black; font-weight:bold; font-size:50px;">JOOTA SHOP</h2></center>
+
+    <div style="background-color:white;">
+        <center>
+            <div class="" style="max-width:500px;">
+
+                <img class="mySlides" src="~/Content/Slider/1.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/2.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/3.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/4.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/5.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/6.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/7.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/8.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/9.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/10.jpg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/11.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/12.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/13.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/14.jpeg" style="width:100%; height:500px;">
+                <img class="mySlides" src="~/Content/Slider/15.jpeg" style="width:100%; height:500px;">
+
+
+            </div>
+        </center>
+    </div>
+    <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/themes/assets/css/carousel.css" rel="stylesheet">
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+
+
+
+
+
+
+
+
+
+    <div class="container marketing">
+        <h2 class="itemsTitle">Men Products</h2>
+        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-inner">
+               
+
+
+                <div class="row">
+                @for (int i = 0; i < Model.Count; i += 3)
+                {
+                    <div class="col-lg-4">
+                        <h4>@Model[i].name</h4>
+                        <img src="@Url.Content(Model[i].imagePath)" alt="Generic placeholder image" height="350px">
+                        <h4>@Model[i].price</h4>
+                        @Html.ActionLink("Add to Cart", "AddtoCard", "shoppingcart", new { _ID = @Model[i].ProductID }, new { @Class = "btn btn-default" })
+
+                    </div>
+                    if (i+1 < Model.Count)
+                    {
+                    <div class="col-lg-4">
+                        <h4>@Model[i + 1].name</h4>
+                        <img src="@Url.Content(Model[i + 1].imagePath)" alt="Generic placeholder image" height="350px">
+                        <h4>@Model[i + 1].price</h4>
+                        @Html.ActionLink("Add to Cart", "AddtoCard", "shoppingcart", new { _ID = @Model[i + 1].ProductID }, new { @Class = "btn btn-default" })
+
+                    </div>
+                    }
+                    if (i + 2 < Model.Count)
+                    {
+
+
+                    <div class="col-lg-4">
+                        <h4>@Model[i + 2].name</h4>
+                        <img src="@Url.Content(Model[i + 2].imagePath)" alt="Generic placeholder image" height="350px">
+                        <h4>@Model[i + 2].price</h4>
+                        @Html.ActionLink("Add to Cart", "AddtoCard", "shoppingcart", new { _ID = @Model[i + 2].ProductID }, new { @Class = "btn btn-default" })
+
+                    </div>
+                        }
+
+                    }
+                </div><!-- /.row -->
+
+            </div>
+
+
+            
+            </div>
+
+
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/themes/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/themes/assets/js/holder.js"></script>
+</body>
+</html>
+

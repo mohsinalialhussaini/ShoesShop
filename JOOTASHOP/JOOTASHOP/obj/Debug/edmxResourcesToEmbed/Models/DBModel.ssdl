@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jootaShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'jootaShop.dbo.cartTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cartTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdutID" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Catagory" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'jootaShop.dbo.kidsTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="kidsTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'jootaShop.dbo.loginTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="loginTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="CNIC" Type="varchar" MaxLength="50" />
+    <Property Name="Contact" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="isAdmin" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'jootaShop.dbo.menTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="menTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'jootaShop.dbo.womenTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="womenTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="jootaShopModelStoreContainer">
+    <EntitySet Name="cartTable" EntityType="Self.cartTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [cartTable].[ID] AS [ID], 
+    [cartTable].[ProdutID] AS [ProdutID], 
+    [cartTable].[Name] AS [Name], 
+    [cartTable].[Catagory] AS [Catagory], 
+    [cartTable].[Price] AS [Price], 
+    [cartTable].[ImagePath] AS [ImagePath]
+    FROM [dbo].[cartTable] AS [cartTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="kidsTable" EntityType="Self.kidsTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [kidsTable].[ID] AS [ID], 
+    [kidsTable].[productID] AS [productID], 
+    [kidsTable].[Name] AS [Name], 
+    [kidsTable].[Price] AS [Price], 
+    [kidsTable].[ImagePath] AS [ImagePath]
+    FROM [dbo].[kidsTable] AS [kidsTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="loginTable" EntityType="Self.loginTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [loginTable].[ID] AS [ID], 
+    [loginTable].[Name] AS [Name], 
+    [loginTable].[Email] AS [Email], 
+    [loginTable].[CNIC] AS [CNIC], 
+    [loginTable].[Contact] AS [Contact], 
+    [loginTable].[Password] AS [Password], 
+    [loginTable].[isAdmin] AS [isAdmin]
+    FROM [dbo].[loginTable] AS [loginTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="menTable" EntityType="Self.menTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [menTable].[ID] AS [ID], 
+    [menTable].[productID] AS [productID], 
+    [menTable].[Name] AS [Name], 
+    [menTable].[Price] AS [Price], 
+    [menTable].[ImagePath] AS [ImagePath]
+    FROM [dbo].[menTable] AS [menTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="womenTable" EntityType="Self.womenTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [womenTable].[ID] AS [ID], 
+    [womenTable].[productID] AS [productID], 
+    [womenTable].[Name] AS [Name], 
+    [womenTable].[Price] AS [Price], 
+    [womenTable].[ImagePath] AS [ImagePath]
+    FROM [dbo].[womenTable] AS [womenTable]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

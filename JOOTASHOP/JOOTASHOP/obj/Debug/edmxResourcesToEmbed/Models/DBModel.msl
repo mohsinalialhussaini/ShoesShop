@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="jootaShopModelStoreContainer" CdmEntityContainer="jootaShopEntities1">
+    <EntitySetMapping Name="cartTables">
+      <EntityTypeMapping TypeName="jootaShopModel.cartTable">
+        <MappingFragment StoreEntitySet="cartTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProdutID" ColumnName="ProdutID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Catagory" ColumnName="Catagory" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kidsTables">
+      <EntityTypeMapping TypeName="jootaShopModel.kidsTable">
+        <MappingFragment StoreEntitySet="kidsTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loginTables">
+      <EntityTypeMapping TypeName="jootaShopModel.loginTable">
+        <MappingFragment StoreEntitySet="loginTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menTables">
+      <EntityTypeMapping TypeName="jootaShopModel.menTable">
+        <MappingFragment StoreEntitySet="menTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="womenTables">
+      <EntityTypeMapping TypeName="jootaShopModel.womenTable">
+        <MappingFragment StoreEntitySet="womenTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

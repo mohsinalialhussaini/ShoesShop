@@ -1,0 +1,78 @@
+﻿@model JOOTASHOP.Models.productTable
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>@ViewBag.Message</h2>
+
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+      
+        <hr />
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.imagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               @Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+
+                
+
+             @*/*  @Html.DropDownListFor(model => model.catagoryName, (SelectList)ViewBag.data) *@
+
+                
+                @Html.DropDownListFor(x => x.catagoryName, new List<SelectListItem>
+                                                                               { new SelectListItem() { Text = "MEN" },
+                                                                                 new SelectListItem() { Text = "WOMEN" },
+                                                                                 new SelectListItem() { Text = "KIDS" }
+                                                                                })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+
+        <h3 style="color:blue">@ViewBag.Message</h3>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,555 @@
+<html>
+<head>
+	<style type="text/css">
+
+	*{
+		margin: 0px;
+	}
+
+
+	#wowslider-container0{
+		height: 500px;
+		width: auto;
+	}
+
+
+	
+	/*********************************
+	******Head & Nevigation Bar******
+	*********************************/
+
+
+	.head{
+		width: 100%;
+		height: 9vw;
+		background-color: #0BA9F9;
+		position: fixed;
+		z-index: 2;
+	}
+
+	
+
+	.title{
+		
+		float: left;
+		width: 31vw;
+		margin-top: 2.45vw;
+		margin-left: 3.3vw;
+
+	}
+
+	.title h1{
+		font-size: 3vw;
+	}
+
+	.list{
+		float: right;
+		width: 61vw;
+		height: 3vw;
+		top: 3.5vw;
+		position: absolute;
+	
+		margin-left: 44vw; 
+
+	}
+	.list a {
+  		
+  		color: black;
+  		text-align: center;
+  		font-family: Arial;
+  		font-weight: bold;
+  		padding: 0.8vw;
+  		text-decoration: none;
+  		font-size: 1.5vw; 
+  		line-height: 2vw;
+  		border-radius: 0.4vw;
+  		margin: 1vw;
+  		
+  		
+	}
+
+	.list a:hover{
+		color: white;
+	} 
+
+	#active{
+		background-color: black;
+		color:white;
+	}
+
+
+
+
+
+	
+	
+
+	
+
+	/*head Closed*/
+
+
+
+
+	/*********************************
+	******--------Extra--------******
+	*********************************/
+
+	.extra{
+		height: 8.5vw;
+		width: 100%
+	}
+
+	
+
+	/*********************************
+	******--------Main_items--------******
+	*********************************/
+
+	.main_items{
+		width: 100%;
+		height: auto;
+		padding: 0vw;
+		margin-top: 2vw;
+	}
+
+	.left_bar{
+		width: 70%;
+		float: left;
+		margin-left: 4vw;
+		
+	}
+
+	.left_bar p{
+		font-family: Arial;
+		font-size: 2.5vw;
+		text-align: left;
+		width: 93%;
+		margin-left: 3vw;
+		margin-top: 2vw;
+		line-height: 3.5vw;
+		word-spacing: 1vw;
+		letter-spacing: 0.02vw;
+	}
+
+	#p1{
+		font-family: Arial;
+		font-size: 2.5vw;
+		text-align: left;
+		width: 93%;
+		margin-left: 3vw;
+		margin-top: 2vw;
+		line-height: 3.5vw;
+		letter-spacing: 0vw;
+	}
+	a{
+		text-decoration: none;
+	}
+
+	h2{
+		margin-top: 2vw;
+		margin-bottom: 2vw;
+		margin-left: 2.8vw;
+		font-family: Arial Black;
+	}
+
+	#pakistan_wonders_images{
+		margin-left: 3.5vw;
+		width: 90%;
+	}
+
+	.right_bar
+	{
+		width: 25%;
+		min-height: 50vw;
+		background-color: #efefef;
+		float: right;
+	}
+
+	.right_bar h3{
+		font-family: Arial ;
+		margin: 2vw;
+		font-size: 1.5vw;
+	}
+
+	.sub_right{
+		background-color: white;
+		min-height: 20vw;
+		width: 70%;
+		font-family: Agency FB;
+		margin: 2vw;
+		font-weight: bold;
+		font-size: 2vw;
+		margin-top: 5vw;
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.sub_right a
+	{
+		text-decoration: none;
+		font-size: 1.3vw;
+		font-family: Arial;
+		margin:2vw;
+
+	}
+
+	.sub_right img{
+		width: 100%;
+		padding-bottom:2vw; 
+	}
+
+	
+		
+	
+
+
+
+
+	/*********************************
+	******--------Footer--------******
+	*********************************/
+	.footer{
+		
+		width: 100%;
+		height:23vw;
+		background-color: rgba(0,0,0,0.9);
+		color: White;
+		clear: both;
+
+		
+	}
+	.a{
+		height: 13vw;
+		width: 22vw;
+		float: left;
+		margin-right: 0vw;
+		margin-left:10vw;
+		margin-bottom: 0.1vw; 
+		margin-top: 2vw;
+		font-family: Arial;
+		line-height: 2vw;
+		font-size: 1.3vw;
+		letter-spacing: 0.14vw;
+	}
+
+
+
+
+	.copyright{
+
+		width: 100%;
+		clear: both;
+		font-size: 1.5vw;
+	}
+
+	
+	.social_links img
+	{
+		height: 3.2vw;
+		width: 3vw;
+		margin-right: 0vw;
+		opacity: 0.6;
+	}
+
+	 
+
+	.social_links img:hover
+	{
+		opacity: 0.9;
+	}
+
+	#resp{
+		display: none;
+	}
+
+	
+
+	
+
+
+
+	</style>
+
+
+
+
+	
+	<body bgcolor="#efefef">
+	
+<div class="head">
+<div class="nave" id="nave">
+<div class="title">
+<h1 > Wonders Of The World</h1>
+</div>
+
+<div class="list">
+	 <a href="home.html" id="active">  HOME </a>
+	 <a href="home.html#gallery"> GALLERY  </a>
+		<a onclick="disp()"> SIGN_UP </a>
+			 <a href="home.html#team"> TEAM  </a>
+				 <a href="home.html#contact"> CONTACT  </a>
+
+
+
+</div>
+	
+
+</div>																		<!--nave-->
+</div>																		<!--head-->
+<div class="extra">															
+
+	</div>																	<!--Extra-->
+
+																
+
+
+
+
+<div class="main_items">	
+
+<div class="left_bar">
+<img src="~/Content/ContactPage/head_pic_pakistan_wonders.jpg" id="pakistan_wonders_images">
+
+<p>	
+
+<a href="#"> Pakistan </a> has an extraordinary and magnificent variety of landscapes ranging from five of the highest mountain peaks in the world to some of the largest and unique plateaus in the west and finally, awe-inspiring flat Indus plains in the east. It is a land in which the entire canvas of its topography is coloured with picturesque valleys, treacherous mountaintops, serene bodies of water and lush green meadows.
+</p>
+<br>
+<hr style="margin-top:20px;">
+<br>
+<h2> K2 Mountain Range </h2>
+<p id="p1">
+K2 is a magnificent snow-covered mountain that reflects the powerful might of nature in all of its glory, making it marvellous and terrifying at the same time. It is the second-highest mountain in the entire world reaching an unfathomable height of 28,253 feet (8,612 metres). K2 is often referred to as the ‘Savage Mountain’ because it is an excruciatingly difficult ascent with one of the highest prevailing fatality rates for all climbers who dare to climb it. Despite its unconquerable terrain and unpredictable weather patterns, it appeals to climbers from all over the world. Even though it is located on the Pakistan-China border, climbers prefer to climb it from Pakistan’s side as it is more conducive to the activity. Even if you don’t aspire to join its summit, just the mere spectacle of this mighty mountain is a perspective-altering experience that allows you to completely become immersed in the all-encompassing magnificence of mother nature.										 
+	
+</p>
+<br>
+<br>
+
+<img src="~/Content/ContactPage/k2.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+
+<h2>Trango Tower </h2>
+<p id="p1">
+The Trango tower, located in the Baltoro Glacier region present in the Gilgit-Baltistan territory, is the most spectacular vertical alpine climb in the entire world. It has intrigued and inspired alpine climbers from all over the world to achieve its nearly impossible ascent to the top. Against the backdrop of the mighty mountain ranges of the Karakorum, the Trango Tower stands erect with all the unfaltering pride and greatness of a Greek God. It is a mesmerizing sight and an arduous climb as it is completely vertical and its sheer magnificence makes it stand out amidst the entire range of peaks that surround it.
+</p>
+
+<br>
+<br>
+
+<img src="~/Content/ContactPage/trango.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+<h2> Deosai Plains </h2>
+<p id="p1">
+The breathtaking Deosai plateau enjoys the status of one of the highest plateaus in the world. Reaching 13,497 feet above sea level, it is approximately 30 kilometres away from the town of Skardu (Baltistan region). It is given all sorts of magical names, such as ‘fairyland,’ and this is because it constitutes one of the richest biodiversity, in the form of flora and fauna, in the entire world. Its beauty is absolutely mind-blowing in the summer months when millions of wildflowers paint the valley a multitude of bright colours that give it the effect of a mystical paradise. The locals believe that the beauty of the land is conducive to magical supernatural fairies that wander about freely taking inspiration from the landscape. There are crystal blue rivers and streams that cleanse the soul of all stress and anxiety against the backdrop of lime green hills and meadows. The Deosai plains make it hard to believe that heaven is not a place on earth.
+</p>
+<br>
+<br>
+
+<img src="~/Content/ContactPage/deosai.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+<h2> Ansoo Lake </h2>
+<p id="p1">
+A marvel rests amidst towering peaks in the Kaghan Valley called Ansoo Lake, which is shaped exactly like a teardrop at the tantalizing height of 13, 927 feet. The trek that leads to this exotic location is slightly difficult but anyone who has made the journey has returned both gratified and stunned. The reason Ansoo Lake is so special is because the entire lake is so accurately shaped like a teardrop while simultaneously existing at a height at which water bodies do not usually exist, making it a miracle in more ways than one. It is one of the most famous and mesmerizing natural wonders that exist in the north, making it the crown jewel of the Kaghan Valley.
+</p>
+<br>
+<br>
+
+<img src="~/Content/ContactPage/aanso_lake.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+<h2> Saif-ul-Malook </h2>
+<p id="p1">
+Saif-ul-Malook is a crystal clear lake engulfed by gigantic glaciers and immersed in some of the most intriguing folklore in Pakistan. It is at an altitude of 10,578 feet and is one of the most majestic tourist spots in the Kaghan Valley, attracting people from all over the world to contemplate its beauty and revel in its glory. The lake is shrouded in mystery because up until today, no one has ever been able to determine its depth and it is believed that anyone who dares to swim in it drowns almost immediately. Its beauty is so intense that it sometimes becomes terrifying under the radiance of a starlit sky that is immaculately reflected by the crystal clear water. It is believed to have fairies living in the glaciers that surround it and is the backdrop against which the famous fable of the prince of Egypt, Saif-ul-Malook, and the fairy queen, Badi-ul-Jamal, took place.
+
+<br>
+<br>
+
+<img src="~/Content/ContactPage/saif.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+<h2> Attabad Lake </h2>
+<p id="p1">
+Attabad Lake is a glorious and pristine body of water located in the middle of nowhere and surrounded by the mountainous terrain of the Hunza Valley region. It is as still as an ancient tree and the blue of the water puts the sky to shame. Its creation is wrapped in tragedy and loss as it is the result of a landslide that drowned an entire village by the name of Gojal Village. However, although people feel sombre for this loss of life, the creation of this divine body of water inspires them with the utmost reverence and awe.
+</p>
+
+<br>
+<br>
+
+<img src="~/Content/ContactPage/abbotabad.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+
+
+<h2> Princess Of Hope </h2>
+<p id="p1">
+Along the Makran Coast Highway, there is a dazzling sculpture carved out of natural rock and mud that has been marvellously sculpted out of the skilled hands of nature itself. Due to the strong winds emanating from the Arabian Sea in the Balochistan region, this masterpiece stands as tall and proud as a princess of a great kingdom. The name ‘Princess of Hope’ was given to this magnificent natural sculpture by Angelina Jolie on her visit to Pakistan.
+	</p>
+
+<br>
+<br>
+
+<img src="~/Content/ContactPage/princess.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+<h2> Baltoro Glacier </h2>
+<p id="p1">
+Pakistan is famous for its monumental glaciers made purely out of ice located at the core of some of the most extreme mountain ranges in the country These white castles of nature are inspiring as well as extremely difficult to reach even though the magnificent view is worth every hardship you may encounter to get there. The Baltoro Glacier is located in the Karakorum Range at an elevation of 13,895 feet and is 63 kilometres long, making it the second-longest non-polar glacier in the entire world.  Trekking through it is like experiencing an ice age – you’ll be completely overwhelmed by every aspect of the glacier on a physical, mental and emotional level.
+</p>
+<br>
+<br>
+
+<img src="~/Content/ContactPage/glacier.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+
+<h2> Thar Desert </h2>
+<p id="p1">
+The Thar Desert is said to be the heart of Pakistan, due to the rich cultural heritage that is possessed in the form of folk songs, art, rituals and traditions, making it the country’s cultural treasury. It is the largest desert in the country and is a picturesque land of rolling hills of sand, endless sand dunes and mesmerizing sunsets. Due to its large size that covers about 77,000 square miles, it is located partly in the province of Punjab and Sindh and stretches out to northwestern India. It is a desert of unparalleled beauty. Its rich cultural traditions, dresses and dances of the people against the backdrop of an ocean of glittering sand make it a destination worth visiting and experiencing.
+	</p>
+<br>
+<br>
+
+<img src="~/Content/ContactPage/desert.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+<h2> Neelum Valley </h2>
+<p id="p1">
+Neelum Valley is located in Azad Kashmir and being there is like jumping into a bright coloured painting with a marvel waiting at every corner. It contains a mind-altering beauty as it is a valley interspersed with natural wonders every few kilometres. Neelum Valley is filled with lush green hills, dense forests, glorious waterfalls and freshwater streams that glisten under the sun. Walking through the valley, travellers will encounter bright smiles from the locals and against a backdrop of the beautiful green valley, it is easy to believe you have walked straight into heaven.
+	</p>
+<br>
+<br>
+
+<img src="~/Content/ContactPage/neelum.jpg" id="pakistan_wonders_images">
+
+
+<hr style="margin-top:20px;">
+
+</div>
+<div class="right_bar">
+
+<h3>Recommended</h3>
+
+
+<div class="sub_right"> <img src="~/Content/ContactPage/r1.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br>
+16 Reasons to Visit Texas at Least Once in Your Lifetime</div>
+
+
+
+<div class="sub_right"> <img src="~/Content/ContactPage/r2.jpg">  <br>  <a href="#"> GUIDES & TIPS </a> <br><br>
+Welcome to Iona: Scotland's Hidden Mystic Island </div>
+
+
+<div class="sub_right"> <img src="~/Content/ContactPage/r3.jpg">  <br>  <a href="#"> GUIDES & TIPS </a> <br><br> 14 Reasons Everyone Should Visit England at Least Once </div>
+
+<div class="sub_right"> <img src="~/Content/ContactPage/r4.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br>  21 Things You Definitely Didn't Know About London </div>
+<div class="sub_right"> <img src="~/Content/ContactPage/r5.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br> Flowers In Europe: The Best Blossoms And Blooms To See In Spring </div>
+<div class="sub_right"> <img src="~/Content/ContactPage/r6.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br> 15 Countries and Cities You've Been Mispronouncing Your Entire Life </div>
+<div class="sub_right"> <img src="~/Content/ContactPage/r1.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br>  </div>
+<div class="sub_right"> <img src="~/Content/ContactPage/r2.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br>  </div>
+<div class="sub_right"> <img src="~/Content/ContactPage/r3.jpg">   <br>  <a href="#"> GUIDES & TIPS </a> <br><br>  </div>
+<div class="sub_right"> <img src="~/Content/ContactPage/r4.jpg">  <br>  <a href="#"> GUIDES & TIPS </a> <br><br>   </div>
+
+	
+
+</div>
+	
+
+</div>																	   <!--Main_items-->
+
+
+
+
+<div class="footer">														<!--Footer-->
+
+
+
+
+	<div class="a">
+	<h3> The Company </h3>
+<br>
+	About US<br>The Team<br>In The News<br>Our App<br>Newsletter
+		
+	</div>
+
+	<div class="a">
+
+	<h3> Contact US </h3>
+
+	<br>
+
+	Get In Touch <br> Adviser <br> Careers <br> Become a contributor 
+		
+	</div>
+
+	<div class="a">
+		<h3>Legal</h3>
+<br>
+		Privacy Policy <br> Terms Of Use 
+	</div>
+
+
+	<div class="copyright">
+	<div class="social_links">
+<center>
+<a href="www.facebook.com" title="Go to facebook"><img src="~/Content/ContactPage/fb.jpg" > </a>
+<a href="www.tweater.com" title="Go to tweater"><img src="~/Content/ContactPage/twtr.jpg" > </a>
+<a href="www.skype.com" title="Go to skype"><img src="~/Content/ContactPage/s.jpg" > </a>
+<a href="www.youtube.com" title="Go to Youtube"><img src="~/Content/ContactPage/yt.jpg" > </a>
+<a href="www.snapchat.com" title="Go to Snapchat"><img src="~/Content/ContactPage/snap.jpg" > </a>
+<a href="www.instagram.com" title="Go to Instagram"><img src="~/Content/ContactPage/inst.jpg" > </a>
+<a href="www.viber.com" title="Go to Viber"><img src="~/Content/ContactPage/v.jpg" > </a>
+	</center>
+
+</div>
+
+	<center>&copy; 2018, CopyRight Reserved.</center>
+		
+	</div>
+
+	
+</div>
+
+	
+
+
+
+	
+
+</div>
+
+
+
+
+	</body>
+
+
+</html>

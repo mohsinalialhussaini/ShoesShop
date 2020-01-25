@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="jootaShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="contact" Type="varchar" MaxLength="50" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="catagoryTable">
+          <Key>
+            <PropertyRef Name="catagoryID" />
+          </Key>
+          <Property Name="catagoryID" Type="int" Nullable="false" />
+          <Property Name="catagoryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="loginTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderProduct">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" />
+        </EntityType>
+        <EntityType Name="orderTable">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerContact" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerAddress" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="productAddedBy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="productID" Type="int" />
+          <Property Name="catagoryID" Type="int" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="AdditionDate" Type="date" />
+          <Property Name="AdditionTime" Type="time" Precision="7" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productTable">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="catagoryID" Type="int" />
+          <Property Name="imagePath" Type="varchar(max)" />
+          <Property Name="price" Type="int" />
+          <Property Name="quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_AdminData_loginTable">
+          <End Role="loginTable" Type="Self.loginTable" Multiplicity="1" />
+          <End Role="AdminData" Type="Self.AdminData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="loginTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AdminData">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProduct_orderTable">
+          <End Role="orderTable" Type="Self.orderTable" Multiplicity="1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderTable">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProduct_productTable">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_AdminData">
+          <End Role="AdminData" Type="Self.AdminData" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_catagoryTable">
+          <End Role="catagoryTable" Type="Self.catagoryTable" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catagoryTable">
+              <PropertyRef Name="catagoryID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="catagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_productTable">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_productTable1">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productTable_catagoryTable">
+          <End Role="catagoryTable" Type="Self.catagoryTable" Multiplicity="0..1" />
+          <End Role="productTable" Type="Self.productTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catagoryTable">
+              <PropertyRef Name="catagoryID" />
+            </Principal>
+            <Dependent Role="productTable">
+              <PropertyRef Name="catagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jootaShopDBModelStoreContainer">
+          <EntitySet Name="AdminData" EntityType="Self.AdminData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catagoryTable" EntityType="Self.catagoryTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loginTable" EntityType="Self.loginTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderTable" EntityType="Self.orderTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productAddedBy" EntityType="Self.productAddedBy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productTable" EntityType="Self.productTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdminData_loginTable" Association="Self.FK_AdminData_loginTable">
+            <End Role="loginTable" EntitySet="loginTable" />
+            <End Role="AdminData" EntitySet="AdminData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProduct_orderTable" Association="Self.FK_OrderProduct_orderTable">
+            <End Role="orderTable" EntitySet="orderTable" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProduct_productTable" Association="Self.FK_OrderProduct_productTable">
+            <End Role="productTable" EntitySet="productTable" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_AdminData" Association="Self.FK_productAddedBy_AdminData">
+            <End Role="AdminData" EntitySet="AdminData" />
+            <End Role="productAddedBy" EntitySet="productAddedBy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_catagoryTable" Association="Self.FK_productAddedBy_catagoryTable">
+            <End Role="catagoryTable" EntitySet="catagoryTable" />
+            <End Role="productAddedBy" EntitySet="productAddedBy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_productTable" Association="Self.FK_productAddedBy_productTable">
+            <End Role="productTable" EntitySet="productTable" />
+            <End Role="productAddedBy" EntitySet="productAddedBy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_productTable1" Association="Self.FK_productAddedBy_productTable1">
+            <End Role="productTable" EntitySet="productTable" />
+            <End Role="productAddedBy" EntitySet="productAddedBy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productTable_catagoryTable" Association="Self.FK_productTable_catagoryTable">
+            <End Role="catagoryTable" EntitySet="catagoryTable" />
+            <End Role="productTable" EntitySet="productTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="jootaShopDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="loginTable" Relationship="Self.FK_AdminData_loginTable" FromRole="AdminData" ToRole="loginTable" />
+          <NavigationProperty Name="productAddedBies" Relationship="Self.FK_productAddedBy_AdminData" FromRole="AdminData" ToRole="productAddedBy" />
+        </EntityType>
+        <EntityType Name="catagoryTable">
+          <Key>
+            <PropertyRef Name="catagoryID" />
+          </Key>
+          <Property Name="catagoryID" Type="Int32" Nullable="false" />
+          <Property Name="catagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="productAddedBies" Relationship="Self.FK_productAddedBy_catagoryTable" FromRole="catagoryTable" ToRole="productAddedBy" />
+          <NavigationProperty Name="productTables" Relationship="Self.FK_productTable_catagoryTable" FromRole="catagoryTable" ToRole="productTable" />
+        </EntityType>
+        <EntityType Name="loginTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AdminData" Relationship="Self.FK_AdminData_loginTable" FromRole="loginTable" ToRole="AdminData" />
+        </EntityType>
+        <EntityType Name="OrderProduct">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" />
+          <NavigationProperty Name="orderTable" Relationship="Self.FK_OrderProduct_orderTable" FromRole="OrderProduct" ToRole="orderTable" />
+          <NavigationProperty Name="productTable" Relationship="Self.FK_OrderProduct_productTable" FromRole="OrderProduct" ToRole="productTable" />
+        </EntityType>
+        <EntityType Name="orderTable">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_orderTable" FromRole="orderTable" ToRole="OrderProduct" />
+        </EntityType>
+        <EntityType Name="productAddedBy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="productID" Type="Int32" />
+          <Property Name="catagoryID" Type="Int32" />
+          <Property Name="AdminID" Type="Int32" />
+          <Property Name="AdditionDate" Type="DateTime" Precision="0" />
+          <Property Name="AdditionTime" Type="Time" Precision="7" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AdminData" Relationship="Self.FK_productAddedBy_AdminData" FromRole="productAddedBy" ToRole="AdminData" />
+          <NavigationProperty Name="catagoryTable" Relationship="Self.FK_productAddedBy_catagoryTable" FromRole="productAddedBy" ToRole="catagoryTable" />
+          <NavigationProperty Name="productTable" Relationship="Self.FK_productAddedBy_productTable" FromRole="productAddedBy" ToRole="productTable" />
+          <NavigationProperty Name="productTable1" Relationship="Self.FK_productAddedBy_productTable1" FromRole="productAddedBy" ToRole="productTable" />
+        </EntityType>
+        <EntityType Name="productTable">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="catagoryID" Type="Int32" />
+          <Property Name="imagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <NavigationProperty Name="catagoryTable" Relationship="Self.FK_productTable_catagoryTable" FromRole="productTable" ToRole="catagoryTable" />
+          <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_productTable" FromRole="productTable" ToRole="OrderProduct" />
+          <NavigationProperty Name="productAddedBies" Relationship="Self.FK_productAddedBy_productTable" FromRole="productTable" ToRole="productAddedBy" />
+          <NavigationProperty Name="productAddedBies1" Relationship="Self.FK_productAddedBy_productTable1" FromRole="productTable" ToRole="productAddedBy" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_AdminData_loginTable">
+          <End Role="loginTable" Type="Self.loginTable" Multiplicity="1" />
+          <End Role="AdminData" Type="Self.AdminData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="loginTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AdminData">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_AdminData">
+          <End Role="AdminData" Type="Self.AdminData" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_catagoryTable">
+          <End Role="catagoryTable" Type="Self.catagoryTable" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catagoryTable">
+              <PropertyRef Name="catagoryID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="catagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productTable_catagoryTable">
+          <End Role="catagoryTable" Type="Self.catagoryTable" Multiplicity="0..1" />
+          <End Role="productTable" Type="Self.productTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catagoryTable">
+              <PropertyRef Name="catagoryID" />
+            </Principal>
+            <Dependent Role="productTable">
+              <PropertyRef Name="catagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProduct_orderTable">
+          <End Role="orderTable" Type="Self.orderTable" Multiplicity="1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderTable">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProduct_productTable">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_productTable">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productAddedBy_productTable1">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="0..1" />
+          <End Role="productAddedBy" Type="Self.productAddedBy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="productAddedBy">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jootaShopDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminDatas" EntityType="Self.AdminData" />
+          <EntitySet Name="catagoryTables" EntityType="Self.catagoryTable" />
+          <EntitySet Name="loginTables" EntityType="Self.loginTable" />
+          <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
+          <EntitySet Name="orderTables" EntityType="Self.orderTable" />
+          <EntitySet Name="productAddedBies" EntityType="Self.productAddedBy" />
+          <EntitySet Name="productTables" EntityType="Self.productTable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_AdminData_loginTable" Association="Self.FK_AdminData_loginTable">
+            <End Role="loginTable" EntitySet="loginTables" />
+            <End Role="AdminData" EntitySet="AdminDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_AdminData" Association="Self.FK_productAddedBy_AdminData">
+            <End Role="AdminData" EntitySet="AdminDatas" />
+            <End Role="productAddedBy" EntitySet="productAddedBies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_catagoryTable" Association="Self.FK_productAddedBy_catagoryTable">
+            <End Role="catagoryTable" EntitySet="catagoryTables" />
+            <End Role="productAddedBy" EntitySet="productAddedBies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productTable_catagoryTable" Association="Self.FK_productTable_catagoryTable">
+            <End Role="catagoryTable" EntitySet="catagoryTables" />
+            <End Role="productTable" EntitySet="productTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProduct_orderTable" Association="Self.FK_OrderProduct_orderTable">
+            <End Role="orderTable" EntitySet="orderTables" />
+            <End Role="OrderProduct" EntitySet="OrderProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProduct_productTable" Association="Self.FK_OrderProduct_productTable">
+            <End Role="productTable" EntitySet="productTables" />
+            <End Role="OrderProduct" EntitySet="OrderProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_productTable" Association="Self.FK_productAddedBy_productTable">
+            <End Role="productTable" EntitySet="productTables" />
+            <End Role="productAddedBy" EntitySet="productAddedBies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productAddedBy_productTable1" Association="Self.FK_productAddedBy_productTable1">
+            <End Role="productTable" EntitySet="productTables" />
+            <End Role="productAddedBy" EntitySet="productAddedBies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="jootaShopDBModelStoreContainer" CdmEntityContainer="jootaShopDBEntities">
+          <EntitySetMapping Name="AdminDatas">
+            <EntityTypeMapping TypeName="jootaShopDBModel.AdminData">
+              <MappingFragment StoreEntitySet="AdminData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catagoryTables">
+            <EntityTypeMapping TypeName="jootaShopDBModel.catagoryTable">
+              <MappingFragment StoreEntitySet="catagoryTable">
+                <ScalarProperty Name="catagoryID" ColumnName="catagoryID" />
+                <ScalarProperty Name="catagoryName" ColumnName="catagoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loginTables">
+            <EntityTypeMapping TypeName="jootaShopDBModel.loginTable">
+              <MappingFragment StoreEntitySet="loginTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderProducts">
+            <EntityTypeMapping TypeName="jootaShopDBModel.OrderProduct">
+              <MappingFragment StoreEntitySet="OrderProduct">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderTables">
+            <EntityTypeMapping TypeName="jootaShopDBModel.orderTable">
+              <MappingFragment StoreEntitySet="orderTable">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productAddedBies">
+            <EntityTypeMapping TypeName="jootaShopDBModel.productAddedBy">
+              <MappingFragment StoreEntitySet="productAddedBy">
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="catagoryID" ColumnName="catagoryID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdditionDate" ColumnName="AdditionDate" />
+                <ScalarProperty Name="AdditionTime" ColumnName="AdditionTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productTables">
+            <EntityTypeMapping TypeName="jootaShopDBModel.productTable">
+              <MappingFragment StoreEntitySet="productTable">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="catagoryID" ColumnName="catagoryID" />
+                <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="jootaShopDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
